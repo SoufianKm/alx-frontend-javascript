@@ -1,3 +1,4 @@
+//------ task-5 -------//
 // DirectorInterface with the expected methods
 interface DirectorInterface {
   workFromHome(): string;
@@ -45,5 +46,20 @@ function createEmployee(salary: number | string): Director | Teacher {
     return new Teacher();
   } else {
     return new Director();
+  }
+}
+
+//------ task-6 ------//
+// Type predicate function to check if an employee is a Director
+function isDirector(employee: any): employee is Director {
+  return employee instanceof Director;
+}
+
+// Function to execute work based on the type of employee
+function executeWork(employee: Director | Teacher): string {
+  if (isDirector(employee)) {
+    return employee.workDirectorTasks();
+  } else {
+    return employee.workTeacherTasks();
   }
 }

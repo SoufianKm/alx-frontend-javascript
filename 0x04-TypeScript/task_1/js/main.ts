@@ -6,3 +6,8 @@ interface Teacher {
   location: string;
   [key: string]: any;
 }
+
+// Directors interface that extends Teacher
+interface Directors extends Teacher {
+  numberOfReports: number;
+}
